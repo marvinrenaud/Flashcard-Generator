@@ -14,14 +14,16 @@ console.log("");
 console.log("");
 console.log("Basic Card Output is Below:");
 console.log("---------------");
-console.log("Full Object: " , JayZFirstAlbum);
+console.log("Full Object: ", JayZFirstAlbum);
 console.log("---------------");
-console.log("Card Front: " , JayZFirstAlbum.cardFront);
+console.log("Card Front: ", JayZFirstAlbum.cardFront);
 console.log("---------------");
-console.log("Card Back: " , JayZFirstAlbum.cardBack);
+console.log("Card Back: ", JayZFirstAlbum.cardBack);
 console.log("---------------");
 console.log("");
 console.log("");
+
+var partial;
 
 // Build the ClozeCard constructor
 function ClozeCard(fullText, clozeText) {
@@ -33,10 +35,10 @@ function ClozeCard(fullText, clozeText) {
         this.partialTextArray = [];
         for (var i = this.clozeTextWords.length; i < this.fullTextWords.length; i++) {
             this.partialTextArray.push(this.fullTextWords[i]);
-            this.partialText = this.partialTextArray.join(" ");
         }
-        console.log("Partial Text: ..." + this.partialText);
+        return this.partialTextArray.join(" ");
     };
+    this.partial = this.partialText();
 };
 
 // Create and then log a new cloze card.
@@ -44,9 +46,9 @@ var WhoIsJayZ = new ClozeCard("Jay Z is a rapper and mogul.", "Jay Z");
 
 console.log("Cloze Card Output is Below:");
 console.log("---------------");
-console.log("Full Text: " , WhoIsJayZ.fullText);
+console.log("Full Text: ", WhoIsJayZ.fullText);
 console.log("---------------");
-console.log("Cloze Text: " , WhoIsJayZ.clozeText);
+console.log("Cloze Text: ", WhoIsJayZ.clozeText);
 console.log("---------------");
-WhoIsJayZ.partialText();
+console.log("Partial Text: ..." + WhoIsJayZ.partial);
 console.log("---------------");
